@@ -2,13 +2,15 @@
 //  ViewController.swift
 //  JRNL
 //
-//  Created by 황규상 on 5/9/24.
+//  Created by Jungman Bae on 5/7/24.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class JournalListViewController: UIViewController {
 
+    @IBOutlet var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
