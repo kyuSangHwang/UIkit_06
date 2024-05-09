@@ -16,23 +16,25 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let startTime = Date().timeIntervalSince1970
-        toastLabel.text = "Making toast..."
-        toastLabel.text = makeToast()
-        eggLabel.text = "Poaching eggs..."
-        eggLabel.text = poachEgg()
-        sandwichLabel.text = makeSandwich()
-        let endTime = Date().timeIntervalSince1970
-        elapsedTimeLabel.text = "Elapsed time is \(((endTime - startTime) * 100).rounded() / 100) seconds"
+        Task {
+            let startTime = Date().timeIntervalSince1970
+            toastLabel.text = "Making toast..."
+            toastLabel.text = await makeToast()
+            eggLabel.text = "Poaching eggs..."
+            eggLabel.text = await poachEgg()
+            sandwichLabel.text = makeSandwich()
+            let endTime = Date().timeIntervalSince1970
+            elapsedTimeLabel.text = "Elapsed time is \(((endTime - startTime) * 100).rounded() / 100) seconds"
+        }
     }
     
-    func makeToast() -> String {
-        sleep(2)
+    func makeToast() async -> String {
+        try? await Task.sleep(nanoseconds: 2 * 1_000_000_000)
         return "Toast done"
     }
     
-    func poachEgg() -> String {
-        sleep(6)
+    func poachEgg() async -> String {
+        try? await Task.sleep(nanoseconds: 6 * 1_000_000_000)
         return "Egg done"
     }
     
