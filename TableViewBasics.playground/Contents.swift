@@ -9,6 +9,25 @@ class TableViewExampleController: UIViewController, UITableViewDataSource, UITab
         ["cloud.sun", "11 Apr 2023", "It's cloudy out"]
     ]
     
+    /// 뷰 로드 시 호출되는 메서드. 뷰의 초기 설정을 수행합니다.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.bounds = CGRect(x: 0, y: 0, width: 375, height: 667)
+        createTableView()
+    }
+
+    /// 테이블 뷰를 생성하고 설정하는 메서드.
+    func createTableView() {
+        self.tableView = UITableView(frame: CGRect(x: 0, y: 0,
+                                                   width: self.view.frame.width,
+                                                   height: self.view.frame.height))
+        self.tableView?.dataSource = self
+        self.tableView?.delegate = self
+        self.tableView?.backgroundColor = .white
+        self.tableView?.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        self.view.addSubview(self.tableView!)
+    }
+    
     /// 주어진 indexPath에 해당하는 cell(일기의 아이콘, 날짜, 설명)의 데이터를 설정하고 반환. (UITableViewDataSource protocol을 사용하기 위해 구현해줘야 하는 함수)
     /// - Parameters:
     ///   - tableView: 데이터를 표시할 UITableView instance
@@ -58,3 +77,6 @@ class TableViewExampleController: UIViewController, UITableViewDataSource, UITab
     }
     
 }
+
+PlaygroundPage.current.liveView = TableViewExampleController()
+
