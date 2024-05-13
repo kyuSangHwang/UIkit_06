@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  JournalListViewController.swift
 //  JRNL-Codeonly
 //
 //  Created by 황규상 on 5/13/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class JournalListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
