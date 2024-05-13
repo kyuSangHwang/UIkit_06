@@ -25,7 +25,7 @@ class JournalListTableViewCell: UITableViewCell {
     
     private lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
-        titleLabel.text = Title"
+        titleLabel.text = "Title"
         titleLabel.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         return titleLabel
     }()

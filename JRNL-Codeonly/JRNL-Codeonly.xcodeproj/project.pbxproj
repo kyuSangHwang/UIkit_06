@@ -16,6 +16,7 @@
 		781CB58A2BF1A2A4005B8A1E /* AddJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781CB5892BF1A2A4005B8A1E /* AddJournalViewController.swift */; };
 		781CB5922BF1B4E7005B8A1E /* JournalDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781CB5912BF1B4E7005B8A1E /* JournalDetailViewController.swift */; };
 		781CB5942BF1B56B005B8A1E /* JournalListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781CB5932BF1B56B005B8A1E /* JournalListTableViewCell.swift */; };
+		781CB5972BF1E5E1005B8A1E /* JournalEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781CB5962BF1E5E1005B8A1E /* JournalEntry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		781CB5892BF1A2A4005B8A1E /* AddJournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalViewController.swift; sourceTree = "<group>"; };
 		781CB5912BF1B4E7005B8A1E /* JournalDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalDetailViewController.swift; sourceTree = "<group>"; };
 		781CB5932BF1B56B005B8A1E /* JournalListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalListTableViewCell.swift; sourceTree = "<group>"; };
+		781CB5962BF1E5E1005B8A1E /* JournalEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalEntry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		781CB5722BF1920E005B8A1E /* JRNL-Codeonly */ = {
 			isa = PBXGroup;
 			children = (
+				781CB5962BF1E5E1005B8A1E /* JournalEntry.swift */,
 				781CB5732BF1920E005B8A1E /* AppDelegate.swift */,
 				781CB5752BF1920E005B8A1E /* SceneDelegate.swift */,
 				781CB5952BF1B590005B8A1E /* Journal List Screen */,
@@ -156,6 +159,7 @@
 			files = (
 				781CB5782BF1920E005B8A1E /* JournalListViewController.swift in Sources */,
 				781CB5922BF1B4E7005B8A1E /* JournalDetailViewController.swift in Sources */,
+				781CB5972BF1E5E1005B8A1E /* JournalEntry.swift in Sources */,
 				781CB5942BF1B56B005B8A1E /* JournalListTableViewCell.swift in Sources */,
 				781CB5742BF1920E005B8A1E /* AppDelegate.swift in Sources */,
 				781CB5762BF1920E005B8A1E /* SceneDelegate.swift in Sources */,
