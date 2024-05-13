@@ -36,14 +36,14 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         // 안전 영역 레이아웃 가이드 참조
-        let global = view.safeAreaLayoutGuide
+        let safeArea = view.safeAreaLayoutGuide
         
         // 테이블 뷰의 오토레이아웃 제약 조건 설정
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: global.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: global.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: global.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: global.bottomAnchor)
+            tableView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
         ])
         
         // 내비게이션 아이템의 타이틀 설정
