@@ -38,8 +38,8 @@ class JournalListViewController: UIViewController {
     
     @objc private func addJournal() {
         let addJournalViewController = AddJournalViewController()
-        let navigationController = UINavigationController(rootViewController: addJournalViewController)
-        present(navigationController, animated: true)
+        let navController = UINavigationController(rootViewController: addJournalViewController)
+        present(navController, animated: true)
     }
 
 }
