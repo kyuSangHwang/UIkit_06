@@ -51,12 +51,12 @@ class JournalListTableViewCell: UITableViewCell {
             thumbnailView.widthAnchor.constraint(equalToConstant: 90),
             
             dateLabel.topAnchor.constraint(equalTo: marginGuide.topAnchor),
-            dateLabel.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor),
             dateLabel.leadingAnchor.constraint(equalTo: thumbnailView.trailingAnchor, constant: 8),
+            dateLabel.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor, constant: -8),
             
             titleLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 8),
             titleLabel.leadingAnchor.constraint(equalTo: thumbnailView.leadingAnchor, constant: 8),
-            titleLabel.leadingAnchor.constraint(equalTo: marginGuide.trailingAnchor)
+            titleLabel.leadingAnchor.constraint(equalTo: marginGuide.trailingAnchor, constant: -8)
         ])
     }
     
