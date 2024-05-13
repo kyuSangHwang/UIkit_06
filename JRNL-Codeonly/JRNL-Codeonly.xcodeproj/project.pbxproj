@@ -14,6 +14,7 @@
 		781CB5802BF19210005B8A1E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 781CB57F2BF19210005B8A1E /* Base */; };
 		781CB5882BF196AF005B8A1E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781CB5872BF196AF005B8A1E /* MapViewController.swift */; };
 		781CB58A2BF1A2A4005B8A1E /* AddJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781CB5892BF1A2A4005B8A1E /* AddJournalViewController.swift */; };
+		781CB5922BF1B4E7005B8A1E /* JournalDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781CB5912BF1B4E7005B8A1E /* JournalDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		781CB5812BF19210005B8A1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		781CB5872BF196AF005B8A1E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		781CB5892BF1A2A4005B8A1E /* AddJournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalViewController.swift; sourceTree = "<group>"; };
+		781CB5912BF1B4E7005B8A1E /* JournalDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				781CB5732BF1920E005B8A1E /* AppDelegate.swift */,
 				781CB5752BF1920E005B8A1E /* SceneDelegate.swift */,
 				781CB5772BF1920E005B8A1E /* JournalListViewController.swift */,
+				781CB5912BF1B4E7005B8A1E /* JournalDetailViewController.swift */,
 				781CB5892BF1A2A4005B8A1E /* AddJournalViewController.swift */,
 				781CB5872BF196AF005B8A1E /* MapViewController.swift */,
 				781CB57C2BF19210005B8A1E /* Assets.xcassets */,
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				781CB5782BF1920E005B8A1E /* JournalListViewController.swift in Sources */,
+				781CB5922BF1B4E7005B8A1E /* JournalDetailViewController.swift in Sources */,
 				781CB5742BF1920E005B8A1E /* AppDelegate.swift in Sources */,
 				781CB5762BF1920E005B8A1E /* SceneDelegate.swift in Sources */,
 				781CB5882BF196AF005B8A1E /* MapViewController.swift in Sources */,
