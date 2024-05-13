@@ -8,7 +8,7 @@
 import UIKit
 
 /// JournalListViewController 클래스 정의 (UIViewController를 상속받으며, UITableViewDataSource와 UITableViewDelegate 프로토콜을 채택함)
-class JournalListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class JournalListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AddJournalControllerDelegate {
     /// tableView 프로퍼티 정의 및 초기화
     var tableView: UITableView =  {
         let tableView = UITableView()
@@ -59,7 +59,7 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
                                                             action: #selector(addJournal))
     }
     
-    // MARK: - UITableViewDataSource 프로토콜 메서드
+    // MARK: - UITableViewDataSource Protocol Methods
     /// 테이블 뷰의 섹션별 행 개수를 반환하는 메서드
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         sampleJournalEntryData.journalEntries.count
@@ -75,7 +75,7 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
         return cell
     }
     
-    // MARK: - UITableViewDelegate 메서드
+    // MARK: - UITableViewDelegate Methods
     /// 테이블 뷰의 행이 선택되었을 때 호출되는 메서드
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let journalDetailViewController = JournalDetailViewController() // JournalDetailViewController 인스턴스 생성
@@ -87,11 +87,17 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
         return 90
     }
     
-    // MARK: - 메서드
+    // MARK: - Methods
     /// "+" 버튼이 탭되었을 때 호출되는 메서드
     @objc private func addJournal() {
-        let addJournalViewController = AddJournalViewController()   // AddJournalViewController 인스턴스 생성
-        let navController = UINavigationController(rootViewController: addJournalViewController)    // UINavigationController를 사용하여 addJournalViewController를 모달로 표시
+        let addJournalViewController = AddJournalViewController() // AddJournalViewController 인스턴스 생성
+        let navController = UINavigationController(rootViewController: addJournalViewController) // UINavigationController를 사용하여 addJournalViewController를 모달로 표시
+        addJournalViewController.delegate = self
         present(navController, animated: true)
     }
+    
+    public func saveJournalEntry(_ journalEntry: JournalEntry) {
+        print("TEST \(journalEntry.entryTitle)")
+    }
+    
 }
