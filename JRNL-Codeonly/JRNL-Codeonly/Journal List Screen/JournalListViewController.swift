@@ -15,9 +15,13 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
         return tableView
     }()
     
+    var sampleJournalEntryData = SampleJournalEntryData()
+    
     /// 뷰 컨트롤러의 로드 시점에 호출되는 메서드
     override func viewDidLoad() {
         super.viewDidLoad()
+        sampleJournalEntryData.createSampleJournalEntryData()
+        
         
         // 테이블 뷰의 데이터 소스와 델리게이트를 현재 뷰 컨트롤러로 설정
         tableView.dataSource = self
@@ -58,12 +62,17 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
     // MARK: - UITableViewDataSource 프로토콜 메서드
     /// 테이블 뷰의 섹션별 행 개수를 반환하는 메서드
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        sampleJournalEntryData.journalEntries.count
     }
     
     /// 테이블 뷰의 각 행에 표시할 셀을 반환하는 메서드
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell(withIdentifier: "journalCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "journalCell", for: indexPath) as! JournalListTableViewCell
+        let journalEntry = sampleJournalEntryData.journalEntries[indexPath.row]
+        
+        cell.configureCell(journalEntry: journalEntry)
+        
+        return cell
     }
     
     // MARK: - UITableViewDelegate 메서드
