@@ -22,11 +22,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let journalListViewController = JournalListViewController()
         let firstNavigationController = UINavigationController(rootViewController: journalListViewController)
-        firstNavigationController.tabBarItem = UITabBarItem(title: "Journal", image: UIImage(systemName: "person.fill"), tag: 0)
+        firstNavigationController.tabBarItem = UITabBarItem(title: "Journal", 
+                                                            image: UIImage(systemName: "person.fill"),
+                                                            tag: 0)
         
         let mapViewController = MapViewController()
         let secondNavigationController = UINavigationController(rootViewController: mapViewController)
-        secondNavigationController.tabBarItem = UITabBarItem(title: "Map", image: UIImage(systemName: "map"), tag: 0)
+        secondNavigationController.tabBarItem = UITabBarItem(title: "Map", 
+                                                             image: UIImage(systemName: "map"),
+                                                             tag: 1)
         
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [firstNavigationController, secondNavigationController]

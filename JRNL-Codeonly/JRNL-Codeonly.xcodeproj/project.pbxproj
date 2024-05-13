@@ -13,6 +13,7 @@
 		781CB57D2BF19210005B8A1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 781CB57C2BF19210005B8A1E /* Assets.xcassets */; };
 		781CB5802BF19210005B8A1E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 781CB57F2BF19210005B8A1E /* Base */; };
 		781CB5882BF196AF005B8A1E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781CB5872BF196AF005B8A1E /* MapViewController.swift */; };
+		781CB58A2BF1A2A4005B8A1E /* AddJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781CB5892BF1A2A4005B8A1E /* AddJournalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		781CB57F2BF19210005B8A1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		781CB5812BF19210005B8A1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		781CB5872BF196AF005B8A1E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		781CB5892BF1A2A4005B8A1E /* AddJournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				781CB5732BF1920E005B8A1E /* AppDelegate.swift */,
 				781CB5752BF1920E005B8A1E /* SceneDelegate.swift */,
 				781CB5772BF1920E005B8A1E /* JournalListViewController.swift */,
+				781CB5892BF1A2A4005B8A1E /* AddJournalViewController.swift */,
 				781CB5872BF196AF005B8A1E /* MapViewController.swift */,
 				781CB57C2BF19210005B8A1E /* Assets.xcassets */,
 				781CB57E2BF19210005B8A1E /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				781CB5742BF1920E005B8A1E /* AppDelegate.swift in Sources */,
 				781CB5762BF1920E005B8A1E /* SceneDelegate.swift in Sources */,
 				781CB5882BF196AF005B8A1E /* MapViewController.swift in Sources */,
+				781CB58A2BF1A2A4005B8A1E /* AddJournalViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
