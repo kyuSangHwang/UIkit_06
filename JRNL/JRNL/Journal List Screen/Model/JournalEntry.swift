@@ -44,7 +44,7 @@ class JournalEntry {
     }
     
     // MARK: - Sample data
-    /// <#Description#>
+    /// Description
     struct SampleJournalEntryData {
         var journalEntries: [JournalEntry] = []
         mutating func createSampleJournalEntryData() {
