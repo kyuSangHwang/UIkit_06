@@ -13,13 +13,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        
         guard let windowScene = (scene as? UIWindowScene) else { return }
         // self.window = UIWindow(frame: UIWindow.main.bounds)
         // self.window?.windowScene = windowScene
         // 아래 코드와 동일
         self.window = UIWindow(windowScene: windowScene)
         
-        self.window?.rootViewController = JournalListViewController()
+        let journalListViewController = JournalListViewController()
+        let firstNavigationController = UINavigationController(rootViewController: journalListViewController)
+        
+        let mapViewController = MapViewController()
+        let secondNavigationController = UINavigationController(rootViewController: mapViewController)
+        
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [firstNavigationController, secondNavigationController]
+        
+        self.window?.rootViewController = tabBarController
         self.window?.makeKeyAndVisible()
     }
 
