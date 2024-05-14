@@ -357,6 +357,8 @@
                                                     <rect key="frame" x="37.5" y="8.5" width="300" height="298.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="300" id="0qa-30-7sT"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="NQc-1N-WHj"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="W9k-Al-DdA"/>
                                                         <constraint firstAttribute="height" constant="300" id="qBg-YD-SrH"/>
                                                     </constraints>
                                                 </imageView>
