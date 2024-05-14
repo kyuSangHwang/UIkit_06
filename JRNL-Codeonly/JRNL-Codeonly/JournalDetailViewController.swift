@@ -10,6 +10,48 @@ import UIKit
 class JournalDetailViewController: UITableViewController {
     let journalEntry: JournalEntry
     
+    private lazy var dateLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        label.textAlignment = .right
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private lazy var bodyTextView: UITextView = {
+        let textView = UITextView()
+        textView.isEditable = false
+        textView.isSelectable = false
+        textView.backgroundColor = .systemFill
+        textView.textColor = .label
+        textView.font = UIFont.systemFont(ofSize: 14)
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        return textView
+    }()
+    
+    private lazy var imageLabel: UIImageView = {
+        let iamgeView = UIImageView()
+        iamgeView.image = UIImage(systemName: "face.smiling")
+        iamgeView.contentMode = .scaleAspectFit
+        iamgeView.translatesAutoresizingMaskIntoConstraints = false
+        return iamgeView
+    }()
+    
+    private lazy var mapView: UIImageView = {
+        let iamgeView = UIImageView()
+        iamgeView.image = UIImage(systemName: "map")
+        iamgeView.contentMode = .scaleAspectFit
+        iamgeView.translatesAutoresizingMaskIntoConstraints = false
+        return iamgeView
+    }()
+    
     init(journalEntry: JournalEntry) {
         self.journalEntry = journalEntry
         super.init(nibName: nil, bundle: nil)
@@ -22,6 +64,8 @@ class JournalDetailViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        /// UITableViewCell타입의 셀을 "cell"이라는 고유한 식별자로 등록하겠다는 뜻
+        /// 나중에 동일한 타입의 셀을 동일한 이름의 식별자로 접근해서 사용할 예정이지 등록하겠다는 뜻
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         navigationItem.title = "Detail"
     }
