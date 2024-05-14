@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  JRNL
 //
-//  Created by Jungman Bae on 5/7/24.
+//  Created by 황규상 on 5/7/24.
 //
 
 import UIKit
