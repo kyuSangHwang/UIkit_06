@@ -2,7 +2,7 @@
 //  JournalListTableViewCell.swift
 //  JRNL
 //
-//  Created by 황규상 on 5/10/24.
+//  Created by Jungman Bae on 5/10/24.
 //
 
 import UIKit

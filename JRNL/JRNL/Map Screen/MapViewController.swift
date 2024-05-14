@@ -2,7 +2,7 @@
 //  MapViewController.swift
 //  JRNL
 //
-//  Created by 황규상 on 5/14/24.
+//  Created by Jungman Bae on 5/14/24.
 //
 
 import UIKit
@@ -41,7 +41,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
       print("Failed to find user's location: \(error.localizedDescription)")
     }
     
-    // MARK: - MapViewDelegate
+    // MARK: - MKMapViewDelegate
     func mapView(_ mapView: MKMapView, viewFor annotation: any MKAnnotation) -> MKAnnotationView? {
         let identifier = "mapAnnotation"
         if annotation is JournalEntry {
@@ -51,7 +51,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             } else {
                 let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 annotationView.canShowCallout = true
-                let calloutButton = UIButton(type: .detailDisclosure)
+                let calloutButton = UIButton(type: .detailDisclosure) 
                 annotationView.rightCalloutAccessoryView = calloutButton
                 return annotationView
             }
@@ -59,7 +59,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         return nil
     }
     
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,
+                 calloutAccessoryControlTapped control: UIControl) {
         guard let annotation = mapView.selectedAnnotations.first else {
             return
         }

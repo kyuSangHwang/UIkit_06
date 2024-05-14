@@ -2,7 +2,7 @@
 //  AddJournalEntryViewController.swift
 //  JRNL
 //
-//  Created by 황규상 on 5/10/24.
+//  Created by Jungman Bae on 5/10/24.
 //
 
 import UIKit
@@ -18,7 +18,6 @@ class AddJournalEntryViewController: UIViewController, UITextFieldDelegate, UITe
     @IBOutlet var getLocationSwitch: UISwitch!
     @IBOutlet var getLocationSwitchLabel: UILabel!
     
-    
     var newJournalEntry: JournalEntry?
     let locationManager = CLLocationManager()
     var currentLocation: CLLocation?
@@ -32,8 +31,6 @@ class AddJournalEntryViewController: UIViewController, UITextFieldDelegate, UITe
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
     }
-    
-    
     
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation

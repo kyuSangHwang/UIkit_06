@@ -2,7 +2,7 @@
 //  JournalEntry.swift
 //  JRNL
 //
-//  Created by 황규상 on 5/10/24.
+//  Created by Jungman Bae on 5/10/24.
 //
 
 import UIKit
@@ -63,8 +63,8 @@ struct SampleJournalEntryData {
             fatalError("Unable to instantiate journalEntry1")
         }
         guard let journalEntry2 = JournalEntry(rating: 0, title: "Bad",
-                                               body: "Today is bad day", photo: photo2
-                                               ,latitude: 37.3318, longitude: -122.0312) else {
+                                               body: "Today is bad day", photo: photo2,
+                                               latitude: 37.3318, longitude: -122.0312) else {
             fatalError("Unable to instantiate journalEntry2")
         }
         guard let journalEntry3 = JournalEntry(rating: 3, title: "Ok",
