@@ -78,7 +78,8 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
     // MARK: - UITableViewDelegate Methods
     /// 테이블 뷰의 행이 선택되었을 때 호출되는 메서드
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let journalDetailViewController = JournalDetailViewController() // JournalDetailViewController 인스턴스 생성
+        let journalEntry = sampleJournalEntryData.journalEntries[indexPath.row]
+        let journalDetailViewController = JournalDetailViewController(journalEntry: journalEntry)
         show(journalDetailViewController, sender: self) // journalDetailViewController를 내비게이션 스택에 푸시하여 화면 전환
     }
     
