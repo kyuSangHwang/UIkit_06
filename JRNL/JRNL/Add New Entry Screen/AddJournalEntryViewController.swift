@@ -9,7 +9,7 @@ import UIKit
 import CoreLocation
 
 class AddJournalEntryViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, CLLocationManagerDelegate {
-    
+
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var bodyTextView: UITextView!
     @IBOutlet var photoImageView: UIImageView!
@@ -17,6 +17,7 @@ class AddJournalEntryViewController: UIViewController, UITextFieldDelegate, UITe
     
     @IBOutlet var getLocationSwitch: UISwitch!
     @IBOutlet var getLocationSwitchLabel: UILabel!
+    
     
     var newJournalEntry: JournalEntry?
     let locationManager = CLLocationManager()
@@ -46,7 +47,8 @@ class AddJournalEntryViewController: UIViewController, UITextFieldDelegate, UITe
         let lat = currentLocation?.coordinate.latitude
         let long = currentLocation?.coordinate.longitude
         newJournalEntry = JournalEntry(rating: rating, title: title,
-                                       body: body, photo: photo, latitude: lat, longitude: long)
+                                       body: body, photo: photo,
+                                       latitude: lat, longitude: long)
     }
 
     // MARK: - UITextFieldDelegate
@@ -79,7 +81,7 @@ class AddJournalEntryViewController: UIViewController, UITextFieldDelegate, UITe
         updateSaveButtonState()
     }
     
-    // MARK: - CLLocationManagetDelegate
+    // MARK: - CLLocationManagerDelegate
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let myCurrentLocation = locations.first {
             currentLocation = myCurrentLocation
@@ -101,16 +103,15 @@ class AddJournalEntryViewController: UIViewController, UITextFieldDelegate, UITe
         } else {
             saveButton.isEnabled = !textFieldText.isEmpty && !textViewText.isEmpty
         }
-        
-        saveButton.isEnabled = !textFieldText.isEmpty && !textViewText.isEmpty
     }
     
-    @IBAction func getLacationSwitchValueChanged(_ sender: UISwitch) {
+    @IBAction func getLocationSwitchValueChanged(_ sender: UISwitch) {
         if getLocationSwitch.isOn {
             getLocationSwitchLabel.text = "Getting location..."
+            locationManager.requestLocation()
         } else {
             currentLocation = nil
-            getLocationSwitchLabel.text = "Get Location"
+            getLocationSwitchLabel.text = "Get location"
         }
     }
 }

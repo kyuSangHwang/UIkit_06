@@ -122,7 +122,7 @@
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VfN-0g-PgM">
                                                 <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
                                                 <connections>
-                                                    <action selector="getLacationSwitchValueChanged:" destination="L6K-Dk-VRq" eventType="valueChanged" id="nda-ZL-vpU"/>
+                                                    <action selector="getLocationSwitchValueChanged:" destination="L6K-Dk-VRq" eventType="valueChanged" id="qPi-q3-edu"/>
                                                 </connections>
                                             </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jV-c7-3nO">
@@ -184,8 +184,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="bodyTextView" destination="FSa-G0-Mie" id="ipp-iZ-1W1"/>
-                        <outlet property="getLocationSwitch" destination="VfN-0g-PgM" id="709-9H-xIG"/>
-                        <outlet property="getLocationSwitchLabel" destination="3jV-c7-3nO" id="siw-yn-jVi"/>
+                        <outlet property="getLocationSwitch" destination="VfN-0g-PgM" id="Koq-X8-H2K"/>
+                        <outlet property="getLocationSwitchLabel" destination="3jV-c7-3nO" id="9Ck-kS-2u1"/>
                         <outlet property="photoImageView" destination="ADd-JN-K3G" id="EvY-RO-0ZY"/>
                         <outlet property="saveButton" destination="Bic-hn-tmc" id="8Jr-mx-wbd"/>
                         <outlet property="titleTextField" destination="y5x-lU-8LG" id="vZx-L6-v6e"/>
@@ -219,6 +219,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="JU7-8v-IYA"/>
+                    <connections>
+                        <outlet property="mapView" destination="CCO-m6-Zem" id="blb-ca-6Xu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AZx-Oh-fGQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -354,9 +357,7 @@
                                                     <rect key="frame" x="37.5" y="8.5" width="300" height="298.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="300" id="0qa-30-7sT"/>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="QB1-6R-VIq"/>
                                                         <constraint firstAttribute="height" constant="300" id="qBg-YD-SrH"/>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="uVj-0m-kCD"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
