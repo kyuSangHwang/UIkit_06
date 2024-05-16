@@ -101,6 +101,32 @@ class AddJournalViewController: UIViewController,UITextFieldDelegate, UITextView
         photoImageView.image = UIImage(systemName: "face.smiling")
     }
     
+    /// 위치 정보를 가져오기 위한 스위치 상태 변경 시 호출되는 Method
+    @IBAction func getLocationSwitchValueChanged(_ sender: UISwitch) {
+        if getLocationSwitch.isOn {
+            getLocationSwitchLabel.text = "Getting location..."
+            locationManager.requestLocation()
+        } else {
+            currentLocation = nil
+            getLocationSwitchLabel.text = "Get location"
+        }
+    }
+    
+    // MARK: - CLLocationManagerDelegate
+    /// 위치 업데이트 시 호출되는 Method
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let myCurrentLocation = locations.first {
+            currentLocation = myCurrentLocation
+            getLocationSwitchLabel.text = "Done"
+            updateSaveButtonState()
+        }
+    }
+    
+    /// 위치 업데이트 실패 시 호출되는 Method
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Failed to find user's location: \(error.localizedDescription)")
+    }
+    
     @objc func save() {
         guard let title = titleTextField.text, !title.isEmpty,
               let body = bodyTextView.text, !body.isEmpty else {
