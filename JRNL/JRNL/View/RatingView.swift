@@ -52,8 +52,8 @@ class RatingView: UIStackView {
             
             // 버튼의 크기를 설정
             button.translatesAutoresizingMaskIntoConstraints = false
-            button.widthAnchor.constraint(equalToConstant: buttonSize.width).isActive = true
-            button.heightAnchor.constraint(equalToConstant: buttonSize.height).isActive = true
+//            button.widthAnchor.constraint(equalToConstant: buttonSize.width).isActive = true
+//            button.heightAnchor.constraint(equalToConstant: buttonSize.height).isActive = true
             
             // 버튼이 눌렸을 때 호출될 메서드를 설정
             button.addTarget(self, action: #selector(ratingButtonTapped(button:)), for: .touchUpInside)
