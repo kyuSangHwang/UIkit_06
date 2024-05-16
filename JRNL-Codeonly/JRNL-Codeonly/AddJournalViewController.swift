@@ -13,6 +13,12 @@ protocol AddJournalControllerDelegate: AnyObject {
 }
 
 class AddJournalViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate, CLLocationManagerDelegate {
+    @IBOutlet var titleTextField: UITextField!
+    @IBOutlet var bodyTextView: UITextView!
+    @IBOutlet var photoImageView: UIImageView!
+    @IBOutlet var saveButton: UIBarButtonItem!
+    @IBOutlet var getLocationSwitch: UISwitch!
+    @IBOutlet var getLocationSwitchLabel: UILabel!
     
 //    의존 분리를 위해 직접 뷰 컴트롤러를 담기보다, 델리게이크 프롤토콜을 이용한다.
 //    weak var journalListViewController: JournalListViewController?
