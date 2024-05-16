@@ -6,15 +6,20 @@
 //
 
 import UIKit
+import CoreLocation
 
-protocol AddJournalControllerDelegate: NSObject {
+protocol AddJournalControllerDelegate: AnyObject {
     func saveJournalEntry(_ journalEntry: JournalEntry)
 }
 
-class AddJournalViewController: UIViewController {
-    weak var delegate: AddJournalControllerDelegate?
+class AddJournalViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate, CLLocationManagerDelegate {
+    
 //    의존 분리를 위해 직접 뷰 컴트롤러를 담기보다, 델리게이크 프롤토콜을 이용한다.
 //    weak var journalListViewController: JournalListViewController?
+    weak var delegate: AddJournalControllerDelegate?
+    var newJournalEntry: JournalEntry?
+    let locationManager = CLLocationManager()
+    var currentLocation: CLLocation?
     
     private lazy var mainContainer: UIStackView = {
         let stackView = UIStackView()
@@ -47,27 +52,6 @@ class AddJournalViewController: UIViewController {
         stackView.addArrangedSubview(labelComponent)
         
         return stackView
-    }()
-    
-    private lazy var titleTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "Journal Title"
-        
-        return textField
-    }()
-    
-    private lazy var bodyTextView: UITextView = {
-        let textView = UITextView()
-        textView.text = "Journal Body"
-        
-        return textView
-    }()
-    
-    private lazy var imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "face.smiling")
-        
-        return imageView
     }()
     
     override func viewDidLoad() {
