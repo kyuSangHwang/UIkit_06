@@ -127,16 +127,22 @@ class AddJournalViewController: UIViewController,UITextFieldDelegate, UITextView
         print("Failed to find user's location: \(error.localizedDescription)")
     }
     
+    /// 저장 액션 메서드
     @objc func save() {
         guard let title = titleTextField.text, !title.isEmpty,
               let body = bodyTextView.text, !body.isEmpty else {
             return
         }
-        let journalEntry = JournalEntry(rating: 3, title: title, body: body, photo: UIImage(systemName: "face.smiling"))!
+        let photo = photoImageView.image
+        let rating = 3
+        let lat = currentLocation?.coordinate.latitude
+        let long = currentLocation?.coordinate.longitude
+        let journalEntry = JournalEntry(rating: rating, title: title, body: body, photo: photo, latitude: lat, longitude: long)!
         delegate?.saveJournalEntry(journalEntry)
         dismiss(animated: true)
     }
     
+    /// 취소 액션 메서드
     @objc func cancel() {
         dismiss(animated: true)
     }
