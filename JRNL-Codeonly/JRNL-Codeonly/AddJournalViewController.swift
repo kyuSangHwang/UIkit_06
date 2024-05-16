@@ -8,11 +8,13 @@
 import UIKit
 import CoreLocation
 
+/// JournalEntry를 저장하기 위한 델리게이트 프로토콜 정의
 protocol AddJournalControllerDelegate: AnyObject {
     func saveJournalEntry(_ journalEntry: JournalEntry)
 }
 
 class AddJournalViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate, CLLocationManagerDelegate {
+    // IBOutlet을 사용하여 인터페이스 빌더에서 UI 요소를 연결
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var bodyTextView: UITextView!
     @IBOutlet var photoImageView: UIImageView!
@@ -20,8 +22,7 @@ class AddJournalViewController: UIViewController,UITextFieldDelegate, UITextView
     @IBOutlet var getLocationSwitch: UISwitch!
     @IBOutlet var getLocationSwitchLabel: UILabel!
     
-//    의존 분리를 위해 직접 뷰 컴트롤러를 담기보다, 델리게이크 프롤토콜을 이용한다.
-//    weak var journalListViewController: JournalListViewController?
+    // 델리게이트 변수 및 위치 관련 변수 초기화
     weak var delegate: AddJournalControllerDelegate?
     var newJournalEntry: JournalEntry?
     let locationManager = CLLocationManager()
@@ -63,22 +64,28 @@ class AddJournalViewController: UIViewController,UITextFieldDelegate, UITextView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 텍스트 필드와 텍스트 뷰의 델리게이트 설정
         titleTextField.delegate = self
         bodyTextView.delegate = self
+        
+        // 저장 버튼 상태 업데이트
         updateSaveButtonState()
         
+        // 위치 관리자 델리게이트 설정 및 위치 권한 요청
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         
+        // 네비게이션 아이템 설정
         navigationItem.title = "New Entry"
         view.backgroundColor = .white
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save))
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
         
-        setupView()
+        setupView() // 추가적인 뷰 설정
     }
     
+    /// 저장 버튼 상태를 업데이트하는 Method
     private func updateSaveButtonState() {
         let textFieldText = titleTextField.text ?? ""
         let textViewText = bodyTextView.text ?? ""
@@ -89,6 +96,7 @@ class AddJournalViewController: UIViewController,UITextFieldDelegate, UITextView
         }
     }
     
+    /// 추가적인 뷰 설정 Method
     private func setupView() {
         photoImageView.image = UIImage(systemName: "face.smiling")
     }
