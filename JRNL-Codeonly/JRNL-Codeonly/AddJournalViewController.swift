@@ -65,6 +65,7 @@ class AddJournalViewController: UIViewController,UITextFieldDelegate, UITextView
         
         titleTextField.delegate = self
         bodyTextView.delegate = self
+        updateSaveButtonState()
         
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
@@ -76,6 +77,16 @@ class AddJournalViewController: UIViewController,UITextFieldDelegate, UITextView
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
         
         setupView()
+    }
+    
+    private func updateSaveButtonState() {
+        let textFieldText = titleTextField.text ?? ""
+        let textViewText = bodyTextView.text ?? ""
+        if getLocationSwitch.isOn {
+            saveButton.isEnabled = !textFieldText.isEmpty && !textViewText.isEmpty && !(currentLocation == nil)
+        } else {
+            saveButton.isEnabled = !textFieldText.isEmpty && !textViewText.isEmpty
+        }
     }
     
     private func setupView() {
