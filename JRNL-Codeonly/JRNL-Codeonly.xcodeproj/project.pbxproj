@@ -16,7 +16,6 @@
 		3793B0562BF1A2A400C8C2BC /* AddJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3793B0552BF1A2A400C8C2BC /* AddJournalViewController.swift */; };
 		3793B0582BF1B3EB00C8C2BC /* JournalDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3793B0572BF1B3EB00C8C2BC /* JournalDetailViewController.swift */; };
 		3793B05A2BF1B55F00C8C2BC /* JournalListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3793B0592BF1B55F00C8C2BC /* JournalListTableViewCell.swift */; };
-		3793B07F2BF34E8100C8C2BC /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3793B07E2BF34E8100C8C2BC /* CustomTableViewCell.swift */; };
 		7842448D2BF71F3B00002E07 /* JournalEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7842448A2BF71F3B00002E07 /* JournalEntry.swift */; };
 		7842448E2BF71F3C00002E07 /* SharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7842448B2BF71F3B00002E07 /* SharedData.swift */; };
 		784244912BF73D7700002E07 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784244902BF73D7700002E07 /* RatingView.swift */; };
@@ -34,7 +33,6 @@
 		3793B0552BF1A2A400C8C2BC /* AddJournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalViewController.swift; sourceTree = "<group>"; };
 		3793B0572BF1B3EB00C8C2BC /* JournalDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalDetailViewController.swift; sourceTree = "<group>"; };
 		3793B0592BF1B55F00C8C2BC /* JournalListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalListTableViewCell.swift; sourceTree = "<group>"; };
-		3793B07E2BF34E8100C8C2BC /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		7842448A2BF71F3B00002E07 /* JournalEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalEntry.swift; sourceTree = "<group>"; };
 		7842448B2BF71F3B00002E07 /* SharedData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedData.swift; sourceTree = "<group>"; };
 		784244902BF73D7700002E07 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
@@ -76,7 +74,6 @@
 				3793B0412BF191D900C8C2BC /* SceneDelegate.swift */,
 				3793B0432BF191D900C8C2BC /* JournalListViewController.swift */,
 				3793B0572BF1B3EB00C8C2BC /* JournalDetailViewController.swift */,
-				3793B07E2BF34E8100C8C2BC /* CustomTableViewCell.swift */,
 				3793B0552BF1A2A400C8C2BC /* AddJournalViewController.swift */,
 				3793B0532BF1965D00C8C2BC /* MapViewController.swift */,
 				3793B0482BF191DB00C8C2BC /* Assets.xcassets */,
@@ -175,7 +172,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				784244912BF73D7700002E07 /* RatingView.swift in Sources */,
-				3793B07F2BF34E8100C8C2BC /* CustomTableViewCell.swift in Sources */,
 				3793B0442BF191D900C8C2BC /* JournalListViewController.swift in Sources */,
 				3793B0582BF1B3EB00C8C2BC /* JournalDetailViewController.swift in Sources */,
 				3793B05A2BF1B55F00C8C2BC /* JournalListTableViewCell.swift in Sources */,
