@@ -39,6 +39,11 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
                                                             action: #selector(addJournal))
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        SharedData.shared.loadJournalEntriesData()
+    }
+    
     // MARK: - UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         SharedData.shared.numberOfJournalEntries()
@@ -61,6 +66,7 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             SharedData.shared.removeJournalEntry(index: indexPath.row)
+            SharedData.shared.saveJournalEntriesData()
             tableView.reloadData()
         }
     }
@@ -80,6 +86,7 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
     
     public func saveJournalEntry(_ journalEntry: JournalEntry) {
         SharedData.shared.addJournalEntry(newJournalEntry: journalEntry)
+        SharedData.shared.saveJournalEntriesData()
         tableView.reloadData()
     }
     
