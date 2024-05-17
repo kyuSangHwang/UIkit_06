@@ -72,5 +72,4 @@ class JournalListTableViewCell: UITableViewCell {
         dateLabel.text  = journalEntry.date.formatted(.dateTime.year().month().day())
         titleLabel.text = journalEntry.entryTitle
     }
-
 }

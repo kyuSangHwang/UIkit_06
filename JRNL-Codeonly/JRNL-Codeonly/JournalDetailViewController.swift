@@ -7,35 +7,6 @@
 
 import UIKit
 
-class CustomTableViewCell: UITableViewCell {
-    var stackView: UIStackView!
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupUI()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setupUI() {
-        stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.backgroundColor = .systemMint
-        stackView.spacing = 8
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(stackView)
-        
-        NSLayoutConstraint.activate([
-            stackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            stackView.widthAnchor.constraint(equalToConstant: 252),
-            stackView.heightAnchor.constraint(equalToConstant: 44)
-        ])
-    }
-}
-
 class JournalDetailViewController: UITableViewController {
     let journalEntry: JournalEntry
     
@@ -59,7 +30,7 @@ class JournalDetailViewController: UITableViewController {
         let textView = UITextView()
         textView.isEditable = false
         textView.isSelectable = false
-        textView.backgroundColor = .systemFill
+        textView.backgroundColor = .systemBackground
         textView.textColor = .label
         textView.font = UIFont.systemFont(ofSize: 14)
         textView.translatesAutoresizingMaskIntoConstraints = false
@@ -67,24 +38,24 @@ class JournalDetailViewController: UITableViewController {
     }()
     
     private lazy var imageView: UIImageView = {
-        let iamgeView = UIImageView()
-        iamgeView.image = UIImage(systemName: "face.smiling")
-        iamgeView.contentMode = .scaleAspectFit
-        iamgeView.translatesAutoresizingMaskIntoConstraints = false
-        return iamgeView
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "face.smiling")
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
     }()
     
     private lazy var mapView: UIImageView = {
-        let iamgeView = UIImageView()
-        iamgeView.image = UIImage(systemName: "map")
-        iamgeView.contentMode = .scaleAspectFit
-        iamgeView.translatesAutoresizingMaskIntoConstraints = false
-        return iamgeView
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "map")
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
     }()
     
     init(journalEntry: JournalEntry) {
         self.journalEntry = journalEntry
-        super.init(nibName: nil, bundle: nil)
+        super.init(nibName: nil, bundle:nil)
     }
     
     required init?(coder: NSCoder) {
@@ -93,9 +64,7 @@ class JournalDetailViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        /// UITableViewCell타입의 셀을 "cell"이라는 고유한 식별자로 등록하겠다는 뜻
-        /// 나중에 동일한 타입의 셀을 동일한 이름의 식별자로 접근해서 사용할 예정이지 등록하겠다는 뜻
+        
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "customCell")
         navigationItem.title = "Detail"
@@ -117,9 +86,10 @@ class JournalDetailViewController: UITableViewController {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-            let marginGuide = cell.contentView.layoutMarginsGuide
             cell.contentView.addSubview(dateLabel)
             dateLabel.text = journalEntry.date.formatted(.dateTime.year().month().day())
+
+            let marginGuide = cell.contentView.layoutMarginsGuide
             NSLayoutConstraint.activate([
                 dateLabel.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor),
                 dateLabel.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor),
@@ -127,14 +97,13 @@ class JournalDetailViewController: UITableViewController {
             ])
             return cell
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as!
-            CustomTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! CustomTableViewCell
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-            let marginGuide = cell.contentView.layoutMarginsGuide
             cell.contentView.addSubview(titleLabel)
             titleLabel.text = journalEntry.entryTitle
+            let marginGuide = cell.contentView.layoutMarginsGuide
             NSLayoutConstraint.activate([
                 titleLabel.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor),
                 titleLabel.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor),
@@ -143,9 +112,9 @@ class JournalDetailViewController: UITableViewController {
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-            let marginGuide = cell.contentView.layoutMarginsGuide
             cell.contentView.addSubview(bodyTextView)
             bodyTextView.text = journalEntry.entryBody
+            let marginGuide = cell.contentView.layoutMarginsGuide
             NSLayoutConstraint.activate([
                 bodyTextView.topAnchor.constraint(equalTo: marginGuide.topAnchor),
                 bodyTextView.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor),
@@ -158,8 +127,8 @@ class JournalDetailViewController: UITableViewController {
             cell.contentView.addSubview(imageView)
             imageView.image = journalEntry.photo
             NSLayoutConstraint.activate([
-                imageView.centerXAnchor.constraint(equalTo: cell.centerXAnchor),
-                imageView.centerYAnchor.constraint(equalTo: cell.centerYAnchor),
+                imageView.centerXAnchor.constraint(equalTo: cell.contentView.centerXAnchor),
+                imageView.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor),
                 imageView.widthAnchor.constraint(equalToConstant: 300),
                 imageView.heightAnchor.constraint(equalToConstant: 300)
             ])
@@ -168,8 +137,8 @@ class JournalDetailViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             cell.contentView.addSubview(mapView)
             NSLayoutConstraint.activate([
-                mapView.centerXAnchor.constraint(equalTo: cell.centerXAnchor),
-                mapView.centerYAnchor.constraint(equalTo: cell.centerYAnchor),
+                mapView.centerXAnchor.constraint(equalTo: cell.contentView.centerXAnchor),
+                mapView.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor),
                 mapView.widthAnchor.constraint(equalToConstant: 300),
                 mapView.heightAnchor.constraint(equalToConstant: 300)
             ])
@@ -205,13 +174,14 @@ class JournalDetailViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
+        }    
     }
     */
 
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+
     }
     */
 
@@ -225,6 +195,7 @@ class JournalDetailViewController: UITableViewController {
 
     /*
     // MARK: - Navigation
+
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
