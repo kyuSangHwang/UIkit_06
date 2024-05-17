@@ -68,6 +68,7 @@ class SharedData {
         let json = try? JSONEncoder().encode(journalEntries)
         do {
             // 인코딩된 JSON 데이터를 파일에 씀
+            // 아래 코드가 journalEntries를 통으로 읽어서 데이터가 많아지면 앱이 버벅거리고 느려질 수 있다.
             try json!.write(to: fileURL)
         } catch {
             // 데이터 쓰기 실패 시 에러 메시지 출력
