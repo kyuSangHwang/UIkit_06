@@ -9,8 +9,9 @@ import UIKit
 import CoreLocation
 
 class AddJournalEntryViewController: UIViewController, UITextFieldDelegate,
-                                        UITextViewDelegate, CLLocationManagerDelegate,
-                                        UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+                                     UITextViewDelegate, CLLocationManagerDelegate,
+                                     UIImagePickerControllerDelegate, UINavigationControllerDelegate
+{
 
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var bodyTextView: UITextView!
@@ -96,12 +97,16 @@ class AddJournalEntryViewController: UIViewController, UITextFieldDelegate,
     }
     
     // MARK: - UIImagePickerControllerDelegate
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
-        let samllerImage = selectedImage.preparingThumbnail(of: CGSize(width: 300, height: 300))
-        photoImageView.image = samllerImage
+        let smallerImage = selectedImage.preparingThumbnail(of: CGSize(width: 300, height: 300))
+        photoImageView.image = smallerImage
         dismiss(animated: true)
     }
     
@@ -130,7 +135,7 @@ class AddJournalEntryViewController: UIViewController, UITextFieldDelegate,
     @IBAction func getPhoto(_ sender: UITapGestureRecognizer) {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
-        imagePickerController.sourceType = .savedPhotosAlbum
+        imagePickerController.sourceType = .photoLibrary
         present(imagePickerController, animated: true)
     }
 }

@@ -29,7 +29,7 @@ class JournalListTableViewCell: UITableViewCell {
         titleLabel.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         return titleLabel
     }()
-
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -53,7 +53,7 @@ class JournalListTableViewCell: UITableViewCell {
             dateLabel.topAnchor.constraint(equalTo: marginGuide.topAnchor),
             dateLabel.leadingAnchor.constraint(equalTo: thumbnailView.trailingAnchor, constant: 8),
             dateLabel.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor, constant: -8),
-
+            
             titleLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 8),
             titleLabel.leadingAnchor.constraint(equalTo: thumbnailView.trailingAnchor, constant: 8),
             titleLabel.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor, constant: -8)

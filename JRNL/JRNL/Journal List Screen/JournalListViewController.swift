@@ -26,8 +26,8 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
         let journalCell = tableView.dequeueReusableCell(withIdentifier: "journalCell", for: indexPath) as! JournalListTableViewCell
         let journalEntry = SharedData.shared.getJournalEntry(index: indexPath.row)
         if let photoData = journalEntry.photoData {
-            journalCell.photoImageView.image = UIImage(data: photoData) // decode하는 과정
-        }
+            journalCell.photoImageView.image = UIImage(data: photoData)
+        }        
         journalCell.dateLabel.text = journalEntry.dateString
         journalCell.titleLabel.text = journalEntry.entryTitle
         return journalCell
@@ -37,7 +37,7 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             SharedData.shared.removeJournalEntry(index: indexPath.row)
-            SharedData.shared.savaJournalEntriesData()
+            SharedData.shared.saveJournalEntriesData()
             tableView.reloadData()
         }
     }
@@ -50,7 +50,7 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
         if let sourceViewController = segue.source as? AddJournalEntryViewController,
            let newJournalEntry = sourceViewController.newJournalEntry {
             SharedData.shared.addJournalEntry(newJournalEntry: newJournalEntry)
-            SharedData.shared.savaJournalEntriesData()
+            SharedData.shared.saveJournalEntriesData()
             tableView.reloadData()
         } else {
             print("No Entry or Controller")
