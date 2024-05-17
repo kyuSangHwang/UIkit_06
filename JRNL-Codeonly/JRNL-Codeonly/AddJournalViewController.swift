@@ -14,8 +14,8 @@ protocol AddJournalControllerDelegate: NSObject {
 
 class AddJournalViewController: UIViewController, CLLocationManagerDelegate, UITextViewDelegate {
     weak var delegate: AddJournalControllerDelegate?
-    //    의존 분리를 위해 직접 뷰 컨트롤러를 담기보다, 델리게이트 프로토콜을 이용한다.
-    //    weak var journalListViewController: JournalListViewController?
+//    의존 분리를 위해 직접 뷰 컨트롤러를 담기보다, 델리게이트 프로토콜을 이용한다.
+//    weak var journalListViewController: JournalListViewController?
     
     final let LABEL_VIEW_TAG = 1001
     
@@ -53,7 +53,7 @@ class AddJournalViewController: UIViewController, CLLocationManagerDelegate, UIT
         let switchComponent = UISwitch()
         switchComponent.isOn = false
         switchComponent.addTarget(self, action: #selector(valueChanged(sender:)), for: .valueChanged)
-        
+
         let labelComponent = UILabel()
         labelComponent.text = "Get Location"
         labelComponent.tag = LABEL_VIEW_TAG
@@ -98,10 +98,6 @@ class AddJournalViewController: UIViewController, CLLocationManagerDelegate, UIT
         
         navigationItem.rightBarButtonItem = saveButton
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save,
-                                                            target: self,
-                                                            action: #selector(save))
-        
         saveButton.isEnabled = false
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
@@ -142,6 +138,7 @@ class AddJournalViewController: UIViewController, CLLocationManagerDelegate, UIT
             
             imageView.widthAnchor.constraint(equalToConstant: 200),
             imageView.heightAnchor.constraint(equalToConstant: 200)
+
         ])
         
         locationManager.delegate = self
@@ -227,4 +224,8 @@ class AddJournalViewController: UIViewController, CLLocationManagerDelegate, UIT
         }
     }
     
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
+        print("Failed to find user's location: \(error.localizedDescription)")
+    }
+        
 }

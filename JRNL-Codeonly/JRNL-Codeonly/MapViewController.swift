@@ -21,9 +21,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .white
-        
+
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         self.navigationItem.title = "Loading..."
@@ -40,7 +39,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         ])
     }
     
-    // MARK: - CLLocationManagetDelegate
+    // MARK: - CLLocationManagerDelegate
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let myCurrentLocation = locations.first {
             let lat = myCurrentLocation.coordinate.latitude
