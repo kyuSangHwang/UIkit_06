@@ -65,11 +65,17 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
             return
         }
         filteredTableData.removeAll()
-        for journalEntry in SharedData.shared.getAllJournalEntries() {
-            if journalEntry.entryTitle.lowercased().contains(searchBarText.lowercased()) {
-                filteredTableData.append(journalEntry)
-            }
+//        for journalEntry in SharedData.shared.getAllJournalEntries() {
+//            if journalEntry.entryTitle.lowercased().contains(searchBarText.lowercased()) {
+//                filteredTableData.append(journalEntry)
+//            }
+//        }
+        
+        // 고차함수
+        filteredTableData = SharedData.shared.getAllJournalEntries().filter { journalEntry in
+            journalEntry.entryTitle.lowercased().contains(searchBarText.lowercased())
         }
+        
         self.tableView.reloadData()
     }
     
@@ -101,7 +107,12 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
               let indexPath = tableView.indexPath(for: selectedJournalEntryCell) else {
             fatalError("Could not get indexPath")
         }
-        let selectedJournalEntry = SharedData.shared.getJournalEntry(index: indexPath.row)
+        let selectedJournalEntry: JournalEntry
+        if self.search.isActive {
+            selectedJournalEntry = filteredTableData[indexPath.row]
+        } else {
+            selectedJournalEntry = SharedData.shared.getJournalEntry(index: indexPath.row)
+        }
         journalEntryDetailViewController.selectedJournalEntry = selectedJournalEntry
     }
 
