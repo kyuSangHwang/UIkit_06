@@ -92,6 +92,7 @@ class JournalDetailViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         navigationItem.title = "Detail"
     }
 

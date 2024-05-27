@@ -326,8 +326,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "JRNL-Codeonly/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 기능 권한 승인 문구!";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "항상허용";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용중에만 허용";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사진 라이브러리 사용 승인 문구!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -354,8 +356,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "JRNL-Codeonly/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 기능 권한 승인 문구!";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "항상허용";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용중에만 허용";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사진 라이브러리 사용 승인 문구!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
