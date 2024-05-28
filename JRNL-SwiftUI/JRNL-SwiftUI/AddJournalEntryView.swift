@@ -16,12 +16,12 @@ struct AddJournalEntryView: View {
                 .navigationTitle("Add Journal Entry")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
-                    ToolbarItem(placement: .topBarTrailing) {
+                    ToolbarItem(placement: .topBarLeading) {
                         Button("Cancel") {
                             dismiss()
                         }
                     }
-                    ToolbarItem(placement: .topBarLeading) {
+                    ToolbarItem(placement: .topBarTrailing) {
                         Button("Save") {
                             dismiss()
                         }
