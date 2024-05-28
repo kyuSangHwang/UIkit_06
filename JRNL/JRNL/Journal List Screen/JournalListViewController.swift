@@ -28,6 +28,8 @@ class JournalListViewController: UIViewController, UICollectionViewDataSource, U
         container = _container
         context = ModelContext(_container)
         
+        fetchJournalEntries()
+        
         setupCollectionView()
         
         search.searchResultsUpdater = self
