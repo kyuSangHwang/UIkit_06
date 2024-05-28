@@ -14,6 +14,7 @@
 		78D57FCD2C05C80600BAD6AD /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D57FCC2C05C80600BAD6AD /* MapView.swift */; };
 		78D57FCF2C05C80E00BAD6AD /* JournalListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D57FCE2C05C80E00BAD6AD /* JournalListView.swift */; };
 		78D57FD12C05CA0600BAD6AD /* AddJournalEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D57FD02C05CA0600BAD6AD /* AddJournalEntryView.swift */; };
+		78D57FD32C05CDAD00BAD6AD /* JournalEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D57FD22C05CDAD00BAD6AD /* JournalEntry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		78D57FCC2C05C80600BAD6AD /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		78D57FCE2C05C80E00BAD6AD /* JournalListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalListView.swift; sourceTree = "<group>"; };
 		78D57FD02C05CA0600BAD6AD /* AddJournalEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalEntryView.swift; sourceTree = "<group>"; };
+		78D57FD22C05CDAD00BAD6AD /* JournalEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				78D57FBA2C05C72500BAD6AD /* JRNL_SwiftUIApp.swift */,
+				78D57FD22C05CDAD00BAD6AD /* JournalEntry.swift */,
 				78D57FBC2C05C72500BAD6AD /* ContentView.swift */,
 				78D57FCE2C05C80E00BAD6AD /* JournalListView.swift */,
 				78D57FD02C05CA0600BAD6AD /* AddJournalEntryView.swift */,
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78D57FD32C05CDAD00BAD6AD /* JournalEntry.swift in Sources */,
 				78D57FBD2C05C72500BAD6AD /* ContentView.swift in Sources */,
 				78D57FCD2C05C80600BAD6AD /* MapView.swift in Sources */,
 				78D57FCF2C05C80E00BAD6AD /* JournalListView.swift in Sources */,

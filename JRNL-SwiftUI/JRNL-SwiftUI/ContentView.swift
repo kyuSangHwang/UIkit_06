@@ -14,6 +14,7 @@ struct ContentView: View {
                 .tabItem {
                     Label("List", systemImage: "list.bullet")
                 }
+            
             MapView()
                 .tabItem {
                     Label("Map", systemImage: "map")
@@ -24,4 +25,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .modelContainer(for: JournalEntry.self, inMemory: true)
 }

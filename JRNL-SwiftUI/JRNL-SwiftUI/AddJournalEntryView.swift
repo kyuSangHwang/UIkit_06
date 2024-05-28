@@ -8,18 +8,19 @@
 import SwiftUI
 
 struct AddJournalEntryView: View {
+    @Environment(\.modelContext) var modelContext
     @Environment(\.dismiss) var dismiss
     
-    @State private var isGetLocationOn: Bool = false
-    @State private var entryTitle: String = ""
-    @State private var entryBody: String = ""
+    @State private var isGetLocationOn:Bool = false
+    @State private var entryTitle:String = ""
+    @State private var entryBody:String = ""
     
     var body: some View {
         NavigationStack {
             Form {
                 Section(header: Text("Rating")) {
                     Rectangle()
-                        .foregroundColor(.green)
+                        .foregroundStyle(.cyan)
                 }
                 Section(header: Text("Location")) {
                     Toggle("Get Location", isOn: $isGetLocationOn)
@@ -44,12 +45,14 @@ struct AddJournalEntryView: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Save") {
+                        let journalEntry = JournalEntry(rating: 3, entryTitle: entryTitle,
+                                                        entryBody: entryBody, latitude: nil, longitude: nil)
+                        modelContext.insert(journalEntry)
                         dismiss()
                     }
                 }
             }
         }
-        .navigationTitle("")
     }
 }
 
