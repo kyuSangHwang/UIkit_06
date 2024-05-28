@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  JRNL
 //
-//  Created by Jungman Bae on 5/7/24.
+//  Created by 황규상 on 5/7/24.
 //
 
 import UIKit
@@ -19,6 +19,7 @@ class JournalListViewController: UIViewController, UICollectionViewDataSource, U
     var container: ModelContainer? // 그릇
     var context: ModelContext? // 그릇에 들어가는 데이터
     let descrptor = FetchDescriptor<JournalEntry>(sortBy: [SortDescriptor<JournalEntry>(\.dateString)])
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,7 +73,7 @@ class JournalListViewController: UIViewController, UICollectionViewDataSource, U
         
         if let photoData = journalEntry.photoData {
             journalCell.photoImageView.image = UIImage(data: photoData)
-        }
+        }        
         journalCell.dateLabel.text = journalEntry.dateString
         journalCell.titleLabel.text = journalEntry.entryTitle
         return journalCell
@@ -89,7 +90,7 @@ class JournalListViewController: UIViewController, UICollectionViewDataSource, U
                     self?.context?.delete(selectedJournalEntry)
                 } else {
                     if let selectedJournalEntry = self?.journalEntries[indexPath.item] {
-                        self?.journalEntries.remove(at: indexPath.row)
+                        self?.journalEntries.remove(at: indexPath.item)
                         self?.context?.delete(selectedJournalEntry)
                     }
                 }
@@ -100,7 +101,7 @@ class JournalListViewController: UIViewController, UICollectionViewDataSource, U
         return config
     }
     
-    // MARK: -
+    // MARK: - UICollectionViewDelegateFlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var columns: CGFloat
         if (traitCollection.horizontalSizeClass == .compact) {
@@ -113,7 +114,6 @@ class JournalListViewController: UIViewController, UICollectionViewDataSource, U
         let contentWidth = viewWidth - inset * (columns + 1)
         let cellWidth = contentWidth / columns
         let cellHeight = 90.0
-        
         return CGSize(width: cellWidth, height: cellHeight)
     }
     
@@ -142,7 +142,7 @@ class JournalListViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     @IBAction func unwindNewEntryCancel(segue: UIStoryboardSegue) {
-        
+
     }
     @IBAction func unwindNewEntrySave(segue: UIStoryboardSegue) {
         if let sourceViewController = segue.source as? AddJournalEntryViewController,
@@ -178,3 +178,4 @@ class JournalListViewController: UIViewController, UICollectionViewDataSource, U
     }
 
 }
+

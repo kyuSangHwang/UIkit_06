@@ -2,7 +2,7 @@
 //  MapViewController.swift
 //  JRNL
 //
-//  Created by Jungman Bae on 5/14/24.
+//  Created by 황규상 on 5/14/24.
 //
 
 import UIKit
@@ -19,6 +19,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     var container: ModelContainer?
     var context: ModelContext?
     
+    var annotations: [JournalMapAnnotation] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
@@ -36,6 +38,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     override func viewIsAppearing(_ animated: Bool) {
         super.viewIsAppearing(animated)
+        mapView.removeAnnotations(annotations)
         locationManager.requestLocation()
     }
     
@@ -46,12 +49,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             let long = myLocation.coordinate.longitude
             self.navigationItem.title = "Map"
             mapView.region = setInitialRegion(lat: lat, long: long)
-            
             let descrptor = FetchDescriptor<JournalEntry>(predicate: #Predicate { $0.latitude != nil && $0.longitude != nil })
             guard let journalEntries = try? context?.fetch(descrptor) else {
                 return
             }
-            let annotations = journalEntries.map { JournalMapAnnotation(journal: $0) }
+            annotations = journalEntries.map { JournalMapAnnotation(journal: $0) }
             mapView.addAnnotations(annotations)
         }
     }

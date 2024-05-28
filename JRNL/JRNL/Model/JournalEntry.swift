@@ -2,7 +2,7 @@
 //  JournalEntry.swift
 //  JRNL
 //
-//  Created by Jungman Bae on 5/10/24.
+//  Created by 황규상 on 5/10/24.
 //
 
 import UIKit
@@ -36,5 +36,4 @@ class JournalEntry {
         self.latitude = latitude
         self.longitude = longitude
     }
-    
 }
