@@ -13,7 +13,6 @@ import SwiftData
 struct MapUIView: UIViewRepresentable {
     @Binding var region: MKCoordinateRegion
     @Binding var annotations: [MKAnnotation]
-    @Binding var isDetailViewActive: Bool
     @Binding var selectedAnnotation: JournalMapAnnotation?
     
     func makeUIView(context: Context) -> MKMapView {
@@ -59,7 +58,6 @@ struct MapUIView: UIViewRepresentable {
             if let journalAnnotation = view.annotation as? JournalMapAnnotation {
                 print(journalAnnotation.journal.entryTitle)
                 parent.selectedAnnotation = journalAnnotation
-                parent.isDetailViewActive = true
             }
         }
         
@@ -82,7 +80,6 @@ struct MapView: View {
     var body: some View {
         NavigationStack {
             MapUIView(region: $region, annotations: $annotations,
-                      isDetailViewActive: $isDetailViewActive,
                       selectedAnnotation: $selectedAnnotation)
             .onAppear {
                 locationManager.requestLocation()
@@ -96,7 +93,8 @@ struct MapView: View {
             }
             .navigationTitle("Map")
             .navigationBarTitleDisplayMode(.inline)
-            .navigationDestination(isPresented: $isDetailViewActive) {
+            .navigationDestination(isPresented: Binding(get: { selectedAnnotation != nil },
+                                                        set: { if !$0 { selectedAnnotation = nil } })) {
                 if let journalEntry = selectedAnnotation?.journal {
                     JournalEntryDetailView(journalEntry: journalEntry)
                 }
