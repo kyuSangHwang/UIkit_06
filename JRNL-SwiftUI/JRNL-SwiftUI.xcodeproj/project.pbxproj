@@ -12,6 +12,7 @@
 		784843862C06B99B00CDAC03 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784843852C06B99B00CDAC03 /* ImagePicker.swift */; };
 		78A1BC432C06BC560081E794 /* JournalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A1BC422C06BC560081E794 /* JournalCell.swift */; };
 		78A1BC472C06BDD70081E794 /* JouranlEntryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A1BC462C06BDD70081E794 /* JouranlEntryDetailView.swift */; };
+		78A1BC4A2C06CE570081E794 /* JournalMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A1BC492C06CE570081E794 /* JournalMapAnnotation.swift */; };
 		78D57FBB2C05C72500BAD6AD /* JRNL_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D57FBA2C05C72500BAD6AD /* JRNL_SwiftUIApp.swift */; };
 		78D57FBD2C05C72500BAD6AD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D57FBC2C05C72500BAD6AD /* ContentView.swift */; };
 		78D57FBF2C05C72800BAD6AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78D57FBE2C05C72800BAD6AD /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 		784843852C06B99B00CDAC03 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		78A1BC422C06BC560081E794 /* JournalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalCell.swift; sourceTree = "<group>"; };
 		78A1BC462C06BDD70081E794 /* JouranlEntryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JouranlEntryDetailView.swift; sourceTree = "<group>"; };
+		78A1BC492C06CE570081E794 /* JournalMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalMapAnnotation.swift; sourceTree = "<group>"; };
 		78D57FB72C05C72500BAD6AD /* JRNL-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JRNL-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78D57FBA2C05C72500BAD6AD /* JRNL_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JRNL_SwiftUIApp.swift; sourceTree = "<group>"; };
 		78D57FBC2C05C72500BAD6AD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,6 +70,15 @@
 			path = Coordinates;
 			sourceTree = "<group>";
 		};
+		78A1BC482C06CAB80081E794 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				78D57FD22C05CDAD00BAD6AD /* JournalEntry.swift */,
+				78A1BC492C06CE570081E794 /* JournalMapAnnotation.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		78D57FAE2C05C72500BAD6AD = {
 			isa = PBXGroup;
 			children = (
@@ -87,10 +98,10 @@
 		78D57FB92C05C72500BAD6AD /* JRNL-SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				78A1BC482C06CAB80081E794 /* Model */,
 				7848437E2C06AFD400CDAC03 /* Coordinates */,
 				7848437D2C06AFC900CDAC03 /* View */,
 				78D57FBA2C05C72500BAD6AD /* JRNL_SwiftUIApp.swift */,
-				78D57FD22C05CDAD00BAD6AD /* JournalEntry.swift */,
 				78D57FBC2C05C72500BAD6AD /* ContentView.swift */,
 				78D57FCE2C05C80E00BAD6AD /* JournalListView.swift */,
 				78A1BC462C06BDD70081E794 /* JouranlEntryDetailView.swift */,
@@ -181,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				78A1BC472C06BDD70081E794 /* JouranlEntryDetailView.swift in Sources */,
+				78A1BC4A2C06CE570081E794 /* JournalMapAnnotation.swift in Sources */,
 				78D57FD32C05CDAD00BAD6AD /* JournalEntry.swift in Sources */,
 				78D57FBD2C05C72500BAD6AD /* ContentView.swift in Sources */,
 				78D57FCD2C05C80600BAD6AD /* MapView.swift in Sources */,
