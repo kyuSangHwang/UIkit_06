@@ -12,25 +12,25 @@ import SwiftData
 struct Provider: TimelineProvider {
     let modelContext = ModelContext(try! ModelContainer(for: JournalEntry.self,
                                                         configurations:ModelConfiguration(isStoredInMemoryOnly: false)))
-
+    
     func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(date: Date(),
                     journalEntryDate: "JRNL",
                     journalEntryTitle: "")
     }
-
+    
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
         let entry = SimpleEntry(date: Date(),
                                 journalEntryDate: "JRNL",
                                 journalEntryTitle: "")
         completion(entry)
     }
-
+    
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         var entries: [SimpleEntry] = []
         let descriptor = FetchDescriptor<JournalEntry>()
         let currentDate = Date()
-
+        
         if let journalEntries = try? modelContext.fetch(descriptor) {
             for minuteOffset in 0 ..< journalEntries.count {
                 let entryDate = Calendar.current.date(byAdding: .minute, value: minuteOffset * 5, to: currentDate)!
@@ -55,18 +55,23 @@ struct SimpleEntry: TimelineEntry {
 
 struct JRNLWidgetEntryView : View {
     var entry: Provider.Entry
-
+    
     var body: some View {
-        VStack {
-            Text(entry.journalEntryDate)
-            Text(entry.journalEntryTitle)
+        ZStack {
+            AccessoryWidgetBackground()
+            VStack {
+                Text(entry.journalEntryDate)
+                    .font(.headline)
+                Text(entry.journalEntryTitle)
+                    .font(.body)
+            }
         }
     }
 }
 
 struct JRNLWidget: Widget {
     let kind: String = "JRNLWidget"
-
+    
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             if #available(iOS 17.0, *) {
@@ -84,7 +89,7 @@ struct JRNLWidget: Widget {
     }
 }
 
-#Preview(as: .systemMedium) {
+#Preview(as: .accessoryRectangular) {
     JRNLWidget()
 } timeline: {
     SimpleEntry(date: Date(),
